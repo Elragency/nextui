@@ -1,0 +1,17 @@
+User-agent: Googlebot
+Disallow:
+Allow: /
+Crawl-delay: 10
+
+User-agent: Yandex
+Disallow:
+Allow: /
+Crawl-delay: 2
+
+User-agent: archive.org_bot
+Disallow:
+Allow: /
+Crawl-delay: 2
+
+
+Sitemap: https://elragency.com/sitemap-0.xml
