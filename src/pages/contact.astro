@@ -1,0 +1,76 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@components/sections/fr/ContactSection_fr.astro";
+// import Booking from "@components/sections/customs/booking.astro";
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title="Contactez-nous | Agence ELR | Votre Prochain Pas vers le Succès"
+  lang="fr"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.elragency.com/contact/",
+    url: "https://www.elragency.com/contact/",
+    name: "Contactez-nous | Agence ELR",
+    description:
+      "Contactez l'équipe de l'agence ELR pour révolutionner votre compagnie et passer au niveau supérieur!",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://www.elragency.com",
+      name: "Agence ELR",
+      description:
+      "Agence ELR propose des outils de haut niveau et des services de  experts pour répondre à tous les besoins de votre compagnie.",
+    },
+    inLanguage: "fr-CAN",
+  }}
+>
+  <ContactSection />
+
+
+
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const thankYouMessage = document.getElementById('thankYouMessage');
+    
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        formData.append('access_key', 'YOUR_ACCESS_KEY_HERE'); // Append access_key to form data
+  
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status === 200) {
+            // Hide the form and show the thank you message
+            form.style.display = 'none';
+            thankYouMessage.classList.remove('hidden');
+            thankYouMessage.innerHTML = "Merci pour votre intérêt! Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+          } else {
+            console.log(response);
+            thankYouMessage.classList.remove('hidden');
+            thankYouMessage.innerHTML = json.message; // Display API provided error message
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          thankYouMessage.classList.remove('hidden');
+          thankYouMessage.innerHTML = "Something went wrong!";
+        });
+      });
+    });
+  </script>
+  
+  
+
+</MainLayout>

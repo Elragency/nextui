@@ -1,0 +1,104 @@
+---
+import Meta from "@components/Meta.astro";
+import Navbar from "@components/sections/navbar&footer/Navbar.astro";
+import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
+import { SITE } from "@data/constants";
+import { ViewTransitions } from 'astro:transitions';
+// import Isotope from 'isotope-layout';
+
+
+// Setting expected props
+const { title = SITE.title, meta, structuredData, lang = "fr" } = Astro.props;
+---
+
+<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+  <head>
+    <Meta meta={meta} structuredData={structuredData} />
+    <title>{title}</title>
+
+    <!-- Add the Google Fonts import here -->
+    <!-- Roboto Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script is:inline>
+      if (
+        localStorage.getItem("hs_theme") === "dark" ||
+        (!("hs_theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <script>
+      import "@scripts/lenisSmoothScroll.js";
+    </script>
+    <ViewTransitions />
+  </head>
+  <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800 transition-main">
+    <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8" >
+      <Navbar />
+      <main class="transition-fade">
+        <slot />
+      </main>
+    </div>
+    <FooterSection />
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400; /* Default to Roboto Regular */
+        font-size: 16px;
+        font-style: normal;
+      }
+      h1.montserrat-titles {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 800;
+  font-style: normal;
+}
+
+      
+
+    </style>
+    <!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/46331934.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script is:inline >
+  document.addEventListener('DOMContentLoaded', function () {
+    // initialize Isotope
+    var iso = new Isotope('.isotope-container', {
+      itemSelector: '.item',
+      layoutMode: 'fitRows'
+    });
+
+    // filter items on button click
+    var filtersElem = document.querySelector('.projects-filters');
+    filtersElem.addEventListener('click', function (event) {
+      if (!event.target.matches('.filter-button')) {
+        return;
+      }
+      event.preventDefault();
+      var filterValue = event.target.getAttribute('data-filter');
+      iso.arrange({ filter: filterValue });
+
+      // change active class
+      var activeButton = filtersElem.querySelector('.filter-button.active');
+      if (activeButton) {
+        activeButton.classList.remove('active');
+      }
+      event.target.classList.add('active');
+    });
+  });
+</script>
+  </body>
+</html>

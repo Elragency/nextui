@@ -1,0 +1,29 @@
+{
+  "subTitle": "Vous avez des questions sur nos services de marketing digital ? Nous avons les réponses !",
+  "faqs": [
+    {
+      "question": "Quels services propose l'AGENCE ELR ?",
+      "answer": "Nous offrons tout ce qu'il vous faut pour réussir en ligne : création de sites web, automatisation, marketing de contenu, référencement (SEO), gestion des réseaux sociaux et publicité en ligne. On s'adapte à vos besoins pour créer une stratégie sur mesure."
+    },
+    {
+      "question": "Comment l'AGENCE ELR peut-elle améliorer ma visibilité en ligne ?",
+      "answer": "On combine des techniques de référencement (SEO), de publicité payante (PPC) et de gestion des réseaux sociaux pour booster votre visibilité. On crée des campagnes ciblées qui attirent plus de visiteurs et vous aident à être mieux classé sur Google."
+    },
+    {
+      "question": "Qu'est-ce qui rend l'AGENCE ELR unique ?",
+      "answer": "Notre approche est personnalisée : on s'assure de comprendre vos besoins pour créer des stratégies qui marchent vraiment. On utilise les dernières technologies et on vous garantit des résultats concrets."
+    },
+    {
+      "question": "Comment mesurez-vous les résultats des campagnes ?",
+      "answer": "On utilise des outils pour suivre les résultats en temps réel. Vous recevez des rapports clairs sur des indicateurs comme le trafic sur votre site, les conversions, le retour sur investissement (ROI) et l'engagement sur les réseaux sociaux."
+    },
+    {
+      "question": "Quel type de contenu créez-vous pour vos clients ?",
+      "answer": "On crée du contenu varié : articles de blog, vidéos, infographies, posts pour les réseaux sociaux, et du contenu optimisé pour le SEO. Chaque contenu est conçu pour captiver votre audience et refléter votre marque."
+    },
+    {
+      "question": "Proposez-vous des services pour gérer les réseaux sociaux ?",
+      "answer": "Oui, on s'occupe de tout ! On crée des stratégies de contenu, on gère vos publications, on interagit avec vos abonnés et on analyse les performances pour vous aider à atteindre vos objectifs."
+    }
+  ]
+}

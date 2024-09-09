@@ -1,0 +1,145 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection2.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import ClientsSection from "@components/sections/landing/ClientsSection.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import FAQ from "@components/sections/misc/FAQ.astro";
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+import heroImage from "@images/hero-image.avif";
+import faqs from "@/data_files/faqs.json";
+import features from "@/data_files/features.json";
+import pricing from "@/data_files/pricing.json";
+import featureImage from "@images/features-image.avif";
+import construction from "@images/construction-image.avif";
+import tools from "@images/automated-tools.avif";
+import dashboard from "@images/dashboard-image.avif";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const avatarSrcs: Array<string> = [
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+---
+
+<MainLayout lang="fr">
+  <AnnouncementBanner
+    btnId="dismiss-button"
+    btnTitle="Découvrez ScrewFast sur GitHub"
+    url="https://github.com/mearashadowfax/ScrewFast"
+  />
+
+  <HeroSection
+    title=`Faites ce qui vous passionne, <span class="text-yellow-500 dark:text-yellow-400">on s'occupe du reste.</span>`
+    subTitle="Outils matériels de haute qualité et services de construction experts pour tous les besoins en projet."
+    primaryBtn="Débutez Maintenant"
+    primaryBtnURL={getRelativeLocaleUrl("fr", "products")}
+    secondaryBtn="En apprendre davantage"
+    secondaryBtnURL={getRelativeLocaleUrl("fr", "contact")}
+    withReview={false}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4.8</span> / 5`
+    starCount={4}
+    reviews=`À partir de plus de <span class="font-bold">12,8k</span> avis`
+    src={heroImage}
+    alt="Pile de boîtes de produits ScrewFast contenant des outils matériels assortis"
+  />
+
+  <ClientsSection
+    title="Faites confiance aux leaders de l'industrie"
+    subTitle="Découvrez la fiabilité choisie par les géants de l'industrie."
+  />
+
+  <FeaturesGeneral
+  title="Votre Agence Web De Confiance pour vos besoins marketing."
+  subTitle="Notre mission est de mettre en place votre site internet ainsi qu'établir votre stratégie numérique pour permettre à votre entreprise de croitre."
+  src={featureImage}
+  alt="Des sites web créés par l'agence ELR"
+  features={features}
+/>
+
+<FeaturesNavs
+  title={`L'équipe de <span class="text-orange-500 dark:text-orange-400">L'AGENCE ELR</span> est là pour vous aider à faire grandir votre entreprise en ligne.`}
+  tabs={[
+    {
+      heading: "Support sur mesure",
+      content:
+        "On vous accompagne à chaque étape de la création de votre site web avec une équipe qui se consacre à vos besoins. Notre objectif est de vous simplifier la vie et de vous aider à réussir.",
+      svg: "tools",
+      src: tools,
+      alt: "Équipe offrant un support personnalisé",
+      first: true,
+    },
+    {
+      heading: "Résultats concrets",
+      content:
+        "Avec nous, vous verrez des résultats réels et tangibles. On analyse les performances pour vous aider à comprendre ce qui fonctionne et attirer encore plus de clients.",
+      svg: "dashboard",
+      src: dashboard,
+      alt: "Graphique montrant des résultats mesurables",
+    },
+    {
+      heading: "Expertise en stratégie",
+      content:
+        "On utilise notre expérience en marketing pour créer des stratégies qui fonctionnent vraiment, adaptées à vos besoins et à vos clients. On est là pour vous aider à atteindre vos objectifs.",
+      svg: "dashboard",
+      src: construction,
+      alt: "Tableau de données stratégiques",
+    },
+  ]}
+/>
+
+
+<TestimonialsSection
+  title="Découvrez Nos Résultats"
+  subTitle="À l'AGENCE ELR, nous nous engageons à offrir des résultats exceptionnels pour tous vos projets de marketing digital. Notre équipe garantit une exécution efficace et des résultats mesurables qui respectent vos objectifs et votre budget. Avec nous, vous allez avoir un site web à la hauteur de vos ambitions."
+  testimonials={[
+    {
+      content:
+        "AGENCE ELR a transformé notre présence en ligne en nous créant un magnifique site web. Leur réactivité et leur expertise ont dépassé nos attentes, et les résultats sont impressionnants !",
+      author: "Samantha Ruiz",
+      role: "Directrice des opérations | ConstructIt Inc.",
+      avatarSrc:
+        "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    },
+  ]}
+  statistics={[
+    {
+      count: "500+",
+      description:
+        "Campagnes de marketing digital réalisées avec succès par l'équipe d'AGENCE ELR au cours de la dernière année grâce à notre stratégie numérique personnalisée.",
+    },
+    {
+      count: "60%",
+      description:
+        "Augmentation moyenne du retour sur investissement pour nos clients grâce à nos stratégies numériques innovantes. Faites avec la meilleure agence web!",
+    },
+    {
+      count: "70%",
+      description:
+        "De nos clients voient une amélioration significative de leur engagement en ligne dans les trois premiers mois grace à nos services de SEO ou de référencement payant.",
+    },
+    {
+      count: "3x",
+      description:
+        "Croissance du trafic web pour nos clients après l'optimisation de leur site et la mise en place d'une stratégie de marketing digital perfectionnée.",
+    },
+  ]}
+/>
+
+  <!-- <PricingSection pricing={pricing} /> -->
+
+  <FAQ title="Questions<br />fréquemment posées" faqs={faqs} />
+
+  <HeroSectionAlt
+    title="Faisons Affaires Ensemble"
+    subTitle="Nous sommes fiers de pouvoir changer la vie des entrepreneurs qui nous font confiance, c'est ce qui nous motive réellement. Serez-vous le prochain?"
+    url="/contact"
+  />
+</MainLayout>
